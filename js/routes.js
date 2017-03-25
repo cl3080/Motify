@@ -56,10 +56,14 @@ angular.module('app.routes', [])
     }
   })
 
-  .state('kongSkullIsland', {
+  .state('menu.kongSkullIsland', {
     url: '/page5',
-    templateUrl: 'templates/kongSkullIsland.html',
-    controller: 'kongSkullIslandCtrl'
+    views: {
+      'side-menu21': {
+        templateUrl: 'templates/kongSkullIsland.html',
+        controller: 'kongSkullIslandCtrl'
+      }
+    }
   })
 
   .state('menu', {

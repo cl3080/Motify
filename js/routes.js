@@ -10,34 +10,56 @@ angular.module('app.routes', [])
     
   
 
-      .state('menu.home', {
+      .state('menu.motify', {
     url: '/page1',
     views: {
       'side-menu21': {
-        templateUrl: 'templates/home.html',
-        controller: 'homeCtrl'
+        templateUrl: 'templates/motify.html',
+        controller: 'motifyCtrl'
       }
     }
   })
 
-  .state('menu.cart', {
+  .state('forYou', {
     url: '/page2',
+    templateUrl: 'templates/forYou.html',
+    controller: 'forYouCtrl'
+  })
+
+  .state('menu.trend', {
+    url: '/page10',
     views: {
       'side-menu21': {
-        templateUrl: 'templates/cart.html',
-        controller: 'cartCtrl'
+        templateUrl: 'templates/trend.html',
+        controller: 'trendCtrl'
       }
     }
   })
 
-  .state('menu.cloud', {
-    url: '/page3',
+  .state('menu.search', {
+    url: '/page7',
     views: {
       'side-menu21': {
-        templateUrl: 'templates/cloud.html',
-        controller: 'cloudCtrl'
+        templateUrl: 'templates/search.html',
+        controller: 'searchCtrl'
       }
     }
+  })
+
+  .state('menu.me', {
+    url: '/page8',
+    views: {
+      'side-menu21': {
+        templateUrl: 'templates/me.html',
+        controller: 'meCtrl'
+      }
+    }
+  })
+
+  .state('kongSkullIsland', {
+    url: '/page5',
+    templateUrl: 'templates/kongSkullIsland.html',
+    controller: 'kongSkullIslandCtrl'
   })
 
   .state('menu', {

@@ -20,8 +20,18 @@ angular.module('app.routes', [])
     }
   })
 
-  .state('forYou', {
+  .state('menu.me', {
     url: '/page2',
+    views: {
+      'side-menu21': {
+        templateUrl: 'templates/me.html',
+        controller: 'meCtrl'
+      }
+    }
+  })
+
+  .state('forYou', {
+    url: '/page9',
     templateUrl: 'templates/forYou.html',
     controller: 'forYouCtrl'
   })
@@ -42,16 +52,6 @@ angular.module('app.routes', [])
       'side-menu21': {
         templateUrl: 'templates/search.html',
         controller: 'searchCtrl'
-      }
-    }
-  })
-
-  .state('menu.me', {
-    url: '/page8',
-    views: {
-      'side-menu21': {
-        templateUrl: 'templates/me.html',
-        controller: 'meCtrl'
       }
     }
   })

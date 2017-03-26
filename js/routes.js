@@ -30,12 +30,6 @@ angular.module('app.routes', [])
     }
   })
 
-  .state('forYou', {
-    url: '/page9',
-    templateUrl: 'templates/forYou.html',
-    controller: 'forYouCtrl'
-  })
-
   .state('menu.trend', {
     url: '/page10',
     views: {

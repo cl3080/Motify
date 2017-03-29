@@ -5,8 +5,8 @@
 - Step 2: Install Xcode
 - Step 3: Install the NativeScript CLI
 - Step 4: Do tns doctor
-- Step 4: Do npm install
-- Step 5: tns run ios/android
+- Step 5: Do npm install
+- Step 6: tns run ios/android
 
 ## Known Issues and Solution
 

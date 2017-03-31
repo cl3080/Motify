@@ -1,6 +1,14 @@
 # UI Design For IOS/Android
 
-[Choose your layout](https://docs.nativescript.org/angular/ui/components.html#image)
+[Choose your layout](https://docs.nativescript.org/angular/code-samples/ui/layouts.html)
+
+[Adding Image at a Button](http://stackoverflow.com/questions/37577343/attribute-property-binding-for-background-image-url-in-angular-2)
+
+
+### Set Tap Property of an Image
+```html
+<Image src="res://add" (tap)="add()" col="1"></Image>
+```
 
 ## IOS (All Param Pixels)
 

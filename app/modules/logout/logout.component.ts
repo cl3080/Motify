@@ -10,8 +10,7 @@ import { Router } from '@angular/router';
 
 export class LogoutComponent {
 
-    constructor(private router: Router) {}
-    public onTapLogout() {
+    constructor(private router: Router) {
         tnsOAuthModule.logout()
             .then(() => {
                 console.log('logged out');
@@ -22,12 +21,26 @@ export class LogoutComponent {
                 console.dir(er);
             })
             .then(() => {
-            this.router.navigate(['/']);
+                this.router.navigate(['/']);
             })
     }
-
-    public authcallback() {
-        console.log("this is callback")
-    }
+    // public onTapLogout() {
+    //     tnsOAuthModule.logout()
+    //         .then(() => {
+    //             console.log('logged out');
+    //         })
+    //         .catch((er) => {
+    //             console.log('error happens when logging out');
+    //             console.log('printing out error');
+    //             console.dir(er);
+    //         })
+    //         .then(() => {
+    //         this.router.navigate(['/']);
+    //         })
+    // }
+    //
+    // public authcallback() {
+    //     console.log("this is callback")
+    // }
 }
 

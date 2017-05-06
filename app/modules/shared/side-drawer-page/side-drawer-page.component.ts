@@ -27,10 +27,11 @@ export class SideDrawerPageComponent implements AfterViewInit, OnDestroy {
   drawerTransition: any;
 
   navMenu: any[] = [
-    { name: 'Home', commands: ['/'] },
+    { name: 'Home', commands: ['/home'] },
     { name: 'Trend', commands: ['/trend'] },
     { name: 'Search', commands: ['/search'] },
-    { name: 'Me', commands: ['/profile']}
+    { name: 'Me', commands: ['/profile']},
+    { name: 'Logout', commands: ['/logout']}
   ];
 
   private drawer: SideDrawerType;

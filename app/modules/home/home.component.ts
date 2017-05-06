@@ -1,5 +1,6 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
 
+
 @Component({
   selector: 'home',
   templateUrl: 'modules/home/home.component.html',

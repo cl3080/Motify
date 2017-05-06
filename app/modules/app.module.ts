@@ -9,6 +9,8 @@ import { TrendComponent } from './trend/trend.component';
 import { SearchComponent } from './search/search.component';
 import { ProfileComponent } from './profile/profile.component';
 import { SharedModule } from './shared';
+import { LoginComponent } from  './login/login.component';
+import { LogoutComponent } from './logout/logout.component';
 
 @NgModule({
   imports: [
@@ -21,9 +23,12 @@ import { SharedModule } from './shared';
     HomeComponent,
     TrendComponent,
     SearchComponent,
-      ProfileComponent
+    ProfileComponent,
+    LoginComponent,
+      LogoutComponent
   ],
   bootstrap: [AppComponent]
+    // bootstrap: [LoginComponent]
 })
 export class AppModule {
 

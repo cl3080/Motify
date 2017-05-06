@@ -1,7 +1,7 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
 
 @Component({
-  selector: 'about',
+  selector: 'trend',
   templateUrl: 'modules/trend/trend.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })

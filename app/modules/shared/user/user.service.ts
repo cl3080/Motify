@@ -11,15 +11,28 @@ import { Config } from '../config';
 export class UserService {
     constructor(private http: Http, private user: User) {}
 
-    getUserNameAndId(user: User) {
-        this.http.get( Config.GetUserIdentityUrl + "me?access_token=" + user.token.toString())
+    getUserNameAndIdAndPhoto(user: User) {
+        this.http.get( Config.GetUserInfoUrl + "me?access_token=" + user.token.toString())
             .map(res => res.json())
             .subscribe((response: any) => {
             console.log(JSON.stringify(response));
             user.name = response.name;
             user.id = response.id;
-            console.log("User name and ID is fetched")
-            })
-
+            user.photoUrl = Config.GetUserInfoUrl + user.id.toString() + '/picture';
+            console.log("User name and ID is fetched");
+            console.log(JSON.stringify(user));
+            });
     }
+
+    // deprecated function
+    // getUserPhoto(user: User) {
+    //     console.log(Config.GetUserInfoUrl + user.id.toString() + '/picture');
+    //     this.http.get( Config.GetUserInfoUrl + user.id.toString() + '/picture')
+    //         // .map(res => res.json())
+    //         .subscribe((response: any) => {
+    //         user.photoUrl = response;
+    //         console.log(response);
+    //         console.log("user profile is fetched");
+    //         })
+    // }
 }

@@ -5,6 +5,6 @@ export class User {
     public token: string = '';
     public name: string = '';
     public id: string = '';
-    public photo: string = '';
+    public photoUrl: string = '';
     public constructor() {}
 }

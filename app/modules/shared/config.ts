@@ -1,3 +1,3 @@
 export class Config {
-    static GetUserIdentityUrl = "https://graph.facebook.com/";
+    static GetUserInfoUrl = "https://graph.facebook.com/";
 }

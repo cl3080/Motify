@@ -4,18 +4,20 @@ import { Router } from '@angular/router';
 import { Page } from'ui/page';
 import { RouterExtensions } from "nativescript-angular";
 import { User } from '../shared/user/user';
+import { UserService } from "../shared/user/user.service";
+import { Config } from '../shared/config';
 
 
 
 @Component({
     selector: "login",
     templateUrl: 'modules/login/login.component.html',
-    // providers: [User]
+    providers: [UserService]
 })
 
 export class LoginComponent {
 
-    constructor(private router: Router, private page: Page, private routerExtensions: RouterExtensions, private user: User) {}
+    constructor(private router: Router, private page: Page, private routerExtensions: RouterExtensions, private user: User, private userService: UserService) {}
 
     ngOnInit() {
         this.page.actionBarHidden = true;
@@ -26,6 +28,7 @@ export class LoginComponent {
             .then((token: string) => {
                 console.log('Token is ' + token);
                 this.user.token = token;
+                this.userService.getUserNameAndIdAndPhoto(this.user);
             })
             .catch((er) => {
                 console.log('error logging in');

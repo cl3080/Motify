@@ -11,8 +11,10 @@ import { UserService } from "../shared/user/user.service";
 })
 export class ProfileComponent {
     public constructor(private user: User, private userService: UserService){
-        console.log(JSON.stringify(this.user));
-        this.userService.getUserNameAndId(this.user);
+    }
+
+    ngOnInit() {
+        // this.userService.getUserPhoto(this.user);
     }
     text: string = 'Profile Page';
 }

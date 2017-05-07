@@ -3,11 +3,6 @@
 
 <side-drawer-page>
   <GridLayout class="p-30">
-      <Label
-          class="h1 page-text"
-          [text]="text"
-          textWrap="true">
-      </Label>
     <ListView [items]="MovieList" class="list-group">
         <template let-movie="item" >
             <GridLayout columns="50, *" rows="*" class="item item-thumbnail">

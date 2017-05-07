@@ -1,4 +1,4 @@
-import { Component, ChangeDetectionStrategy, NgZone } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { Http, Headers, Response, URLSearchParams} from '@angular/http';
 import { Config } from '../shared/config';
 import { Movie } from '../shared/movie/movie';
@@ -16,11 +16,6 @@ export class TrendComponent {
 
   constructor(private http: Http){
       this.MovieList = [];
-  }
-
-  toggleDisplay(movie){
-    console.log("Toggled");
-    movie.showDetails = !movie.showDetails;
   }
 
   ngOnInit() {
@@ -41,8 +36,7 @@ export class TrendComponent {
                 thumbposterUrl: Config.GetMovieImage+"w92"+results[i].poster_path,
                 releaseDate: results[i].release_date,
                 title: results[i].title,
-                vote : results[i].vote_average,
-                showDetails :false
+                vote : results[i].vote_average
             };
             this.MovieList.push(movieitem);
         }

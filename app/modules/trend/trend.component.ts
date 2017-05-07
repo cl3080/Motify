@@ -18,6 +18,11 @@ export class TrendComponent {
       this.MovieList = [];
   }
 
+  toggleDisplay(movie){
+    console.log("Toggled");
+    movie.showDetails = !movie.showDetails;
+  }
+
   ngOnInit() {
     let popularparam : URLSearchParams = new URLSearchParams();
     popularparam.set("api_key",Config.TMDBAPIKEY);
@@ -36,7 +41,8 @@ export class TrendComponent {
                 thumbposterUrl: Config.GetMovieImage+"w92"+results[i].poster_path,
                 releaseDate: results[i].release_date,
                 title: results[i].title,
-                vote : results[i].vote_average
+                vote : results[i].vote_average,
+                showDetails :false
             };
             this.MovieList.push(movieitem);
         }

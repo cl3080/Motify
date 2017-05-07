@@ -31,7 +31,14 @@ export class LoginComponent {
                 console.log('error logging in');
             })
             .then(() => {
-            this.routerExtensions.navigate(['/home'], {clearHistory:true});
+            this.routerExtensions.navigate(['/home'], {
+                clearHistory:true,
+                transition: {
+                        name: "flip",
+                        duration: 500,
+                        curve: "linear"
+                }
+            });
         })
     }
 

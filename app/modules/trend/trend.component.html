@@ -8,5 +8,12 @@
           [text]="text"
           textWrap="true">
       </Label>
+    <ListView [items]="MovieList" class="list-group">
+        <template let-movie="item">
+            <GridLayout class="list-group-item">
+                <Label [text]="movie.title"></Label>
+            </GridLayout>
+        </template>
+    </ListView>
   </GridLayout>
 </side-drawer-page>

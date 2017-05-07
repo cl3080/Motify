@@ -14,6 +14,8 @@ import {
   PushTransition, SlideInOnTopTransition
 } from 'nativescript-telerik-ui/sidedrawer';
 
+import { User } from '../user/user';
+
 @Component({
   selector: 'side-drawer-page',
   templateUrl: 'modules/shared/side-drawer-page/side-drawer-page.component.html',
@@ -22,6 +24,8 @@ import {
 export class SideDrawerPageComponent implements AfterViewInit, OnDestroy {
   @ViewChild(RadSideDrawerComponent) drawerComponent: RadSideDrawerComponent;
 
+  imageUrl;
+  userSlogan;
   isContentVisible: boolean = true;
 
   drawerTransition: any;
@@ -40,10 +44,14 @@ export class SideDrawerPageComponent implements AfterViewInit, OnDestroy {
     private routerExtensions: RouterExtensions,
     private activatedRoute: ActivatedRoute,
     private page: Page,
-    private ngZone: NgZone
+    private ngZone: NgZone,
+    private user: User
   ) {
     this.setActionBarIcon(this.page);
     this.setDrawerTransition();
+    this.imageUrl = this.user.photoUrl;
+    console.log(this.imageUrl);
+    this.userSlogan = "Welcome, " + this.user.name;
   }
 
   ngAfterViewInit() {

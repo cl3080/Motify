@@ -3,11 +3,12 @@
     <StackLayout class="sidedrawer-header">
       <!-- Set src attribute to the logo of the app -->
       <Image
-          class="sidedrawer-header-image">
+          class="sidedrawer-header-image"
+      [src]="imageUrl">
       </Image>
       <Label
           class="sidedrawer-header-brand"
-          text="User's favicon">
+          [text]="userSlogan">
       </Label>
     </StackLayout>
     <ScrollView>

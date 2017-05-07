@@ -18,7 +18,8 @@ export class UserService {
             console.log(JSON.stringify(response));
             user.name = response.name;
             user.id = response.id;
-            user.photoUrl = Config.GetUserInfoUrl + user.id.toString() + '/picture?type=large';
+            // user.photoUrl = Config.GetUserInfoUrl + user.id.toString() + '/picture?type=large';
+            user.photoUrl = Config.GetUserInfoUrl + user.id.toString() + '/picture';
             console.log("User INFO is fetched");
             console.log(JSON.stringify(user));
             });

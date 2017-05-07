@@ -5,8 +5,10 @@ import { Config } from '../shared/config';
 @Component({
     selector: 'search',
     templateUrl: 'modules/search/search.component.html',
-    changeDetection: ChangeDetectionStrategy.OnPush
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    styleUrls: ['modules/search/search.component.css']
 })
+
 export class SearchComponent {
     text: string = 'Search Page';
     querystring: string = '';
@@ -18,6 +20,7 @@ export class SearchComponent {
     }
 
     executesearch() {
+        this.SearchMovieResultList = [];
         var queryitem = this.querystring;
         this.querystring = '';
         let searchparam: URLSearchParams = new URLSearchParams();
@@ -43,13 +46,13 @@ export class SearchComponent {
                             releaseDate: results[i].release_date,
                             title: results[i].title,
                             vote: results[i].vote_average
-                        };
+                    };
                         this.SearchMovieResultList.push(movieitem);
                     }
                     console.log(" Top 5 Movies are collected");
                     console.log(JSON.stringify(this.SearchMovieResultList));
                 }
-                else {
+            else {
                     for ( var i = 0; i <len ; i++) {
                         movieitem = {
                             overview: results[i].overview,

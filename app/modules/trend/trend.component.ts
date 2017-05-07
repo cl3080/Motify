@@ -6,6 +6,7 @@ import { Movie } from '../shared/movie/movie';
 @Component({
   selector: 'trend',
   templateUrl: 'modules/trend/trend.component.html',
+  styleUrls:['modules/trend/trend.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TrendComponent {
@@ -32,9 +33,10 @@ export class TrendComponent {
                 overview: results[i].overview,
                 genre: results[i].genre_ids.map(Number),
                 id: results[i].id,
-                posterUrl: results[i].poster_path,
+                thumbposterUrl: Config.GetMovieImage+"w92"+results[i].poster_path,
                 releaseDate: results[i].release_date,
                 title: results[i].title,
+                vote : results[i].vote_average
             };
             this.MovieList.push(movieitem);
         }

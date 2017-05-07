@@ -1,4 +1,4 @@
-import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { Component, ChangeDetectionStrategy, NgZone } from '@angular/core';
 import { Http, Headers, Response, URLSearchParams} from '@angular/http';
 import { Config } from '../shared/config';
 import { Movie } from '../shared/movie/movie';

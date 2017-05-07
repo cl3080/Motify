@@ -12,13 +12,15 @@ import { SharedModule } from './shared';
 import { LoginComponent } from  './login/login.component';
 import { LogoutComponent } from './logout/logout.component';
 import { User } from './shared/user/user';
+import { NativeScriptFormsModule } from 'nativescript-angular/forms';
 
 @NgModule({
   imports: [
     NativeScriptModule,
     AppRoutingModule,
     SharedModule,
-      NativeScriptHttpModule
+    NativeScriptHttpModule,
+    NativeScriptFormsModule
   ],
   declarations: [
     AppComponent,

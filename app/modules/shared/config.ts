@@ -3,4 +3,5 @@ export class Config {
     static GetUserInfoUrl = "https://graph.facebook.com/";
     static GetPopularMovie = "https://api.themoviedb.org/3/movie/popular";
     static GetMovieImage = "https://image.tmdb.org/t/p/";
+    static SearchMovieUrl = "https://api.themoviedb.org/3/search/movie";
 }

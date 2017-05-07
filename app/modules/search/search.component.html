@@ -8,5 +8,11 @@
           [text]="text"
           textWrap="true">
       </Label>
+      <StackLayout>
+          <TextField hint="Search Something Like La La Land..." autocorrect="false" autocapitalizationType="none" [(ngModel)]="querystring"></TextField>
+          <Button text="Search" (tap)="executesearch()"></Button>
+      </StackLayout>
+
+
   </GridLayout>
 </side-drawer-page>

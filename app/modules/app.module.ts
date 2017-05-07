@@ -11,6 +11,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { SharedModule } from './shared';
 import { LoginComponent } from  './login/login.component';
 import { LogoutComponent } from './logout/logout.component';
+import { User } from './shared/user/user';
 
 @NgModule({
   imports: [
@@ -27,7 +28,8 @@ import { LogoutComponent } from './logout/logout.component';
     LoginComponent,
       LogoutComponent
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+    providers: [User]
     // bootstrap: [LoginComponent]
 })
 export class AppModule {

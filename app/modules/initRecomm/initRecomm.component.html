@@ -11,13 +11,13 @@
         <!--<Image [src]="imageUrl" width="100" height="100"></Image>-->
 
         <GridLayout columns="*,*,*,*,*,*,*,*,*,*" rows="*,*,*,*,*,*,*,*,*,*,*,*" sdkExampleTitle sdkToggleNavButton>
-            <TextField row="0" colSpan="10" text="Movie1"></TextField>
-            <Image row="1" col="3" colSpan="5" rowSpan="5"></Image>
+            <TextField row="0" colSpan="10" [text]="movieitem.title"></TextField>
+            <Image row="1" col="3" colSpan="5" rowSpan="5" [src]="movieitem.imageUrl"></Image>
             <!--<Button text="2" col="1" style="background-color: #FFFF66; margin: 5;"></Button>-->]
             <Button text="2" row="6" colSpan="10" rowSpan="5" style="background-color: #AA0078; margin: 5;"></Button>
             <!--<Button text="5" row="2" col="2" style="background-color: #CCFFFF; margin: 5;"></Button>-->
             <!--<Button text="6" row="3" colSpan="3" style="background-color: #0099CC; margin: 5;"></Button>-->
-            <TextField text="rank" style="background-color: #AA0078; margin: 5;" row="11" colspan="5"></TextField>
+            <TextField text="rank" style="background-color: #AA0078; margin: 5;" row="11" colspan="5" [text]="movieitem.overview"></TextField>
             <Button text="Submit" style="background-color: #AA0078; margin: 5;" row="11" col="5" colspan="5"></Button>
         </GridLayout>
     </GridLayout>

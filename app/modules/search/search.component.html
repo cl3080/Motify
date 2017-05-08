@@ -3,7 +3,7 @@
 
 <side-drawer-page>
   <StackLayout class="p-30">
-          <TextField hint="Search Something Like La La Land..." autocorrect="false" autocapitalizationType="none" [(ngModel)]="querystring"></TextField>
+          <TextField hint="Search Something, then keyStrokes..." autocorrect="false" autocapitalizationType="none" [(ngModel)]="querystring"></TextField>
           <Button text="Search" (tap)="executesearch($event)"></Button>
       <StackLayout>
       <ListView [items]="SearchMovieResultList" class="list-group">

@@ -42,13 +42,13 @@ export class SearchComponent {
                 if (len > 5) {
                     for ( var i = 0; i <5 ; i++) {
                         movieitem = {
-                            overview: results[i].overview,
-                            genre: results[i].genre_ids.map(Number),
-                            id: results[i].id,
-                            thumbposterUrl: results[i].poster_path == null ? 'https://cldup.com/7pg616EKAp.png' : Config.GetMovieImage + 'w92' + results[i].poster_path,
-                            releaseDate: results[i].release_date,
-                            title: results[i].title,
-                            vote: results[i].vote_average
+                            overview: (results[i].overview == null || results[i].overview.length ===0 ) ? 'None': results[i].overview,
+                            genre: (results[i].genre_ids == null || results[i].genre_ids.length ===0) ? [0]: results[i].genre_ids.map(Number),
+                            id: (results[i].id == null || results[i].length ===0 )? 0: results[i].id,
+                            thumbposterUrl: (results[i].poster_path == null || results[i].poster_path.length ===0)? 'https://cldup.com/7pg616EKAp.png' : Config.GetMovieImage + 'w92' + results[i].poster_path,
+                            releaseDate: (results[i].release_date == null || results[i].release_date.length === 0)? "0000-00-00":results[i].release_date,
+                            title: (results[i].title == null || results[i].title.length ===0) ? 'None': results[i].title,
+                            vote: (results[i].vote_average == null) ? 0:results[i].vote_average
                     };
                         this.SearchMovieResultList.push(movieitem);
                     }
@@ -58,13 +58,20 @@ export class SearchComponent {
             else {
                     for ( var i = 0; i <len ; i++) {
                         movieitem = {
-                            overview: results[i].overview,
-                            genre: results[i].genre_ids.map(Number),
-                            id: results[i].id,
-                            thumbposterUrl: results[i].poster_path == null ? 'https://cldup.com/7pg616EKAp.png' : Config.GetMovieImage + 'w92' + results[i].poster_path,
-                            releaseDate: results[i].release_date,
-                            title: results[i].title,
-                            vote: results[i].vote_average
+                            overview: (results[i].overview == null || results[i].overview.length ===0 ) ? 'None': results[i].overview,
+                            genre: (results[i].genre_ids == null || results[i].genre_ids.length ===0) ? [0]: results[i].genre_ids.map(Number),
+                            id: (results[i].id == null || results[i].length ===0 )? 0: results[i].id,
+                            thumbposterUrl: (results[i].poster_path == null || results[i].poster_path.length ===0)? 'https://cldup.com/7pg616EKAp.png' : Config.GetMovieImage + 'w92' + results[i].poster_path,
+                            releaseDate: (results[i].release_date == null || results[i].release_date.length === 0)? "0000-00-00":results[i].release_date,
+                            title: (results[i].title == null || results[i].title.length ===0) ? 'None': results[i].title,
+                            vote: (results[i].vote_average == null) ? 0:results[i].vote_average
+                            // overview: results[i].overview,
+                            // genre: results[i].genre_ids.map(Number),
+                            // id: results[i].id,
+                            // thumbposterUrl: results[i].poster_path == null ? 'https://cldup.com/7pg616EKAp.png' : Config.GetMovieImage + 'w92' + results[i].poster_path,
+                            // releaseDate: results[i].release_date,
+                            // title: results[i].title,
+                            // vote: results[i].vote_average
                         };
                         this.SearchMovieResultList.push(movieitem);
                     }

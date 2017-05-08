@@ -8,6 +8,7 @@ import { SearchComponent } from './search/search.component';
 import { ProfileComponent } from "./profile/profile.component";
 import { LoginComponent } from './login/login.component';
 import { LogoutComponent } from './logout/logout.component';
+import { InitRecommComponent } from './initRecomm/initRecomm.component';
 
 @NgModule({
   imports: [
@@ -17,7 +18,8 @@ import { LogoutComponent } from './logout/logout.component';
       { path: 'trend', component: TrendComponent },
       { path: 'search', component: SearchComponent },
       { path: 'profile', component: ProfileComponent},
-      { path: 'logout', component: LogoutComponent }
+      { path: 'logout', component: LogoutComponent },
+      { path: 'initRecomm', component: InitRecommComponent}
     ])
   ],
   exports: [NativeScriptRouterModule]

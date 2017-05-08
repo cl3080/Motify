@@ -13,6 +13,7 @@ import { LoginComponent } from  './login/login.component';
 import { LogoutComponent } from './logout/logout.component';
 import { User } from './shared/user/user';
 import { NativeScriptFormsModule } from 'nativescript-angular/forms';
+import { InitRecommComponent } from './initRecomm/initRecomm.component';
 
 @NgModule({
   imports: [
@@ -29,7 +30,8 @@ import { NativeScriptFormsModule } from 'nativescript-angular/forms';
     SearchComponent,
     ProfileComponent,
     LoginComponent,
-      LogoutComponent
+      LogoutComponent,
+      InitRecommComponent
   ],
   bootstrap: [AppComponent],
     providers: [User]

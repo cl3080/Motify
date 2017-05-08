@@ -34,14 +34,26 @@ export class LoginComponent {
                 console.log('error logging in');
             })
             .then(() => {
-            this.routerExtensions.navigate(['/home'], {
-                clearHistory:true,
-                transition: {
+            if (this.user.isNewUser === false) {
+                this.routerExtensions.navigate(['/home'], {
+                    clearHistory: true,
+                    transition: {
                         name: "flip",
                         duration: 500,
                         curve: "linear"
-                }
-            });
+                    }
+                });
+            }
+            else {
+                this.routerExtensions.navigate(['/initRecomm'],{
+                    clearHistory: true,
+                    transition:{
+                        name: 'flip',
+                        duration: 500,
+                        curve: 'linear'
+                    }
+                })
+            }
         })
     }
 

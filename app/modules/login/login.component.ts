@@ -46,6 +46,7 @@ export class LoginComponent {
             }
             else {
                 this.routerExtensions.navigate(['/initRecomm'],{
+
                     clearHistory: true,
                     transition:{
                         name: 'flip',

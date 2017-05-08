@@ -14,12 +14,12 @@ import { InitRecommComponent } from './initRecomm/initRecomm.component';
   imports: [
     NativeScriptRouterModule.forRoot([
       { path: '', component: LoginComponent },
+      { path: 'initRecomm', component: InitRecommComponent},
       { path: 'home', component: HomeComponent},
       { path: 'trend', component: TrendComponent },
       { path: 'search', component: SearchComponent },
       { path: 'profile', component: ProfileComponent},
-      { path: 'logout', component: LogoutComponent },
-      { path: 'initRecomm', component: InitRecommComponent}
+      { path: 'logout', component: LogoutComponent }
     ])
   ],
   exports: [NativeScriptRouterModule]

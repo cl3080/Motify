@@ -1,6 +1,9 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { Http, Headers, Response, URLSearchParams} from '@angular/http';
 import { Config } from '../shared/config';
+import { NativeScriptRouterModule } from "nativescript-angular/router";
+import { Router, NavigationStart, NavigationEnd } from "@angular/router";
+import { User } from '../shared/user/user';
 
 @Component({
     selector: 'search',
@@ -15,11 +18,11 @@ export class SearchComponent {
     SearchMovieResultList;
     fetchedMovie = true;
 
-    constructor(private http: Http) {
+    constructor(private http: Http, private user: User) {
         this.SearchMovieResultList = [];
     }
 
-    executesearch() {
+    executesearch($event) {
         this.SearchMovieResultList = [];
         var queryitem = this.querystring;
         this.querystring = '';
@@ -42,7 +45,7 @@ export class SearchComponent {
                             overview: results[i].overview,
                             genre: results[i].genre_ids.map(Number),
                             id: results[i].id,
-                            thumbposterUrl: Config.GetMovieImage + 'w92' + results[i].poster_path,
+                            thumbposterUrl: results[i].poster_path == null ? 'https://cldup.com/7pg616EKAp.png' : Config.GetMovieImage + 'w92' + results[i].poster_path,
                             releaseDate: results[i].release_date,
                             title: results[i].title,
                             vote: results[i].vote_average
@@ -58,7 +61,7 @@ export class SearchComponent {
                             overview: results[i].overview,
                             genre: results[i].genre_ids.map(Number),
                             id: results[i].id,
-                            thumbposterUrl: Config.GetMovieImage + 'w92' + results[i].poster_path,
+                            thumbposterUrl: results[i].poster_path == null ? 'https://cldup.com/7pg616EKAp.png' : Config.GetMovieImage + 'w92' + results[i].poster_path,
                             releaseDate: results[i].release_date,
                             title: results[i].title,
                             vote: results[i].vote_average

@@ -4,6 +4,7 @@ import { RouterExtensions } from "nativescript-angular";
 import { Recommendation } from '../shared/recommendation/recommendation';
 import { Http, Headers, Response, URLSearchParams} from '@angular/http';
 import {Config} from "../shared/config";
+import { NgZone } from "@angular/core";
 
 
 @Component({
@@ -17,7 +18,7 @@ export class InitRecommComponent {
     movieitem;
 
     constructor(private page: Page, private routerExtensions: RouterExtensions,
-                private recommendation: Recommendation, private http: Http) {
+                private recommendation: Recommendation, private http: Http, private ngZone: NgZone) {
         this.movieitem = [];
         this.page.actionBarHidden = true;
         this.recommendation.MovieIndex1 = this.randomIntFromInterval(1,40100);
@@ -32,7 +33,10 @@ export class InitRecommComponent {
         this.recommendation.MovieIndex10 = this.randomIntFromInterval(1,40100);
     }
     randomIntFromInterval(min,max) {
-        return Math.floor(Math.random()*(max-min+1)+min)}
+        return Math.floor(Math.random()*(max-min+1)+min)
+    }
+
+
     ngOnInit() {
         console.log("The series Random Index is: ...")
         console.log("MovieIndex1:" + this.recommendation.MovieIndex1);

@@ -6,7 +6,7 @@ import { RouterExtensions } from "nativescript-angular";
 import { User } from '../shared/user/user';
 import { UserService } from "../shared/user/user.service";
 import { Config } from '../shared/config';
-
+import { Http, Headers, Response, URLSearchParams, RequestOptions} from '@angular/http';
 
 
 @Component({
@@ -17,7 +17,7 @@ import { Config } from '../shared/config';
 
 export class LoginComponent {
 
-    constructor(private router: Router, private page: Page, private routerExtensions: RouterExtensions, private user: User, private userService: UserService) {}
+    constructor(private router: Router, private page: Page, private routerExtensions: RouterExtensions, private user: User, private userService: UserService, private http: Http) {}
 
     ngOnInit() {
         this.page.actionBarHidden = true;
@@ -34,28 +34,70 @@ export class LoginComponent {
                 console.log('error logging in');
             })
             .then(() => {
-            if (this.user.isNewUser === false) {
-                this.routerExtensions.navigate(['/home'], {
-                    clearHistory: true,
-                    transition: {
-                        name: "flip",
-                        duration: 500,
-                        curve: "linear"
-                    }
+            console.log("checking if user exists...");
+            let headers = new Headers();
+            headers.append('Content-Type', 'application/json');
+            console.log("Headers is " +  headers);
+            let body =  JSON.stringify({uid:this.user.id});
+            console.log("Body is " + body);
+            let options = new RequestOptions({headers: headers, method: "post"});
+            console.log("fetching...");
+            var isNewUser = true;
+            this.http.post(Config.CheckIsUserExistUrl, body, options)
+                .map(res => res.json())
+                .subscribe((res: any) => {
+                console.log("Responding message is " + JSON.stringify(res));
+                if (JSON.stringify(res) === 'true'){
+                    console.log("Not New User");
+                    this.routerExtensions.navigate(['/home'], {
+                        clearHistory: true,
+                        transition: {
+                            name: 'flip',
+                            duration: 500,
+                            curve:'linear'
+                        }
+                    });
+                }
+                else {
+                    this.routerExtensions.navigate(['/initRecomm'], {
+                        clearHistory: true,
+                        transition: {
+                            name: 'flip',
+                            duration: 500,
+                            curve: 'linear'
+                        }
+                    })
+                }
                 });
-            }
-            else {
-                this.routerExtensions.navigate(['/initRecomm'],{
 
-                    clearHistory: true,
-                    transition:{
-                        name: 'flip',
-                        duration: 500,
-                        curve: 'linear'
-                    }
-                })
-            }
         })
+            // this.http.post(Config.CheckIsUserExistUrl, {search: searchparam})
+            //     .map(res => res.json())
+            //     .subscribe((response: any) => {
+            //     console.log(response);
+            //     })
+                // if (this.user.isNewUser === false) {
+                //     this.routerExtensions.navigate(['/home'], {
+                //         clearHistory: true,
+                //         transition: {
+                //             name: "flip",
+                //             duration: 500,
+                //             curve: "linear"
+                //         }
+                //     });
+                // }
+                // else {
+                //     this.routerExtensions.navigate(['/initRecomm'],{
+                //
+                //         clearHistory: true,
+                //         transition:{
+                //             name: 'flip',
+                //             duration: 500,
+                //             curve: 'linear'
+                //         }
+                //     })
+                // }
+
     }
 
     public authcallback() {

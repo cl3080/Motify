@@ -62,6 +62,7 @@ export class InitRecommComponent {
     onSkip(){
         console.log("skipped");
         this.recommendation.MovieIndex = this.randomIntFromInterval(1,40100);
+        this.rating = '';
         this.getMovieName();
     }
 

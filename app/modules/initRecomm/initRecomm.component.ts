@@ -73,7 +73,7 @@ export class InitRecommComponent {
         console.log("Headers is " +  headers);
         var postitem = {
             "MovieIndex": this.recommendation.MovieIndex.toString(),
-            "UserId": this.user.id,
+            "UserId": this.user.MapId,
             "rating": this.rating
         };
         this.rating = '';

@@ -31,53 +31,68 @@ export class InitRecommComponent {
     MovieName: string;
     text: string = ' initRecomm Page';
     movieitem;
+    rating: string = '';
+
+
+    // constructor(private page: Page, private routerExtensions: RouterExtensions,
+    //             private recommendation: Recommendation, private http: Http, private ngZone: NgZone) {
+    //     this.movieitem = [];
+    //     this.page.actionBarHidden = true;
+    //     this.recommendation.MovieIndex1 = this.randomIntFromInterval(1,40100);
+    //     this.recommendation.MovieIndex2 = this.randomIntFromInterval(1,40100);
+    //     this.recommendation.MovieIndex3 = this.randomIntFromInterval(1,40100);
+    //     this.recommendation.MovieIndex4 = this.randomIntFromInterval(1,40100);
+    //     this.recommendation.MovieIndex5 = this.randomIntFromInterval(1,40100);
+    //     this.recommendation.MovieIndex6 = this.randomIntFromInterval(1,40100);
+    //     this.recommendation.MovieIndex7 = this.randomIntFromInterval(1,40100);
+    //     this.recommendation.MovieIndex8 = this.randomIntFromInterval(1,40100);
+    //     this.recommendation.MovieIndex9 = this.randomIntFromInterval(1,40100);
+    //     this.recommendation.MovieIndex10 = this.randomIntFromInterval(1,40100);
+    //
+    // }
 
     constructor(private page: Page, private routerExtensions: RouterExtensions,
                 private recommendation: Recommendation, private http: Http, private ngZone: NgZone) {
         this.movieitem = [];
         this.page.actionBarHidden = true;
-        this.recommendation.MovieIndex1 = this.randomIntFromInterval(1,40100);
-        this.recommendation.MovieIndex2 = this.randomIntFromInterval(1,40100);
-        this.recommendation.MovieIndex3 = this.randomIntFromInterval(1,40100);
-        this.recommendation.MovieIndex4 = this.randomIntFromInterval(1,40100);
-        this.recommendation.MovieIndex5 = this.randomIntFromInterval(1,40100);
-        this.recommendation.MovieIndex6 = this.randomIntFromInterval(1,40100);
-        this.recommendation.MovieIndex7 = this.randomIntFromInterval(1,40100);
-        this.recommendation.MovieIndex8 = this.randomIntFromInterval(1,40100);
-        this.recommendation.MovieIndex9 = this.randomIntFromInterval(1,40100);
-        this.recommendation.MovieIndex10 = this.randomIntFromInterval(1,40100);
+        this.recommendation.MovieIndex = this.randomIntFromInterval(1,40100);
+    }
 
+    onRatingSubmit() {
+        console.log("Submit Button Called");
+        this.recommendation.MovieIndex = this.randomIntFromInterval(1,40100);
+        this.getMovieName();
+        // this.routerExtensions.navigate(['/initRecomm'], {
+        //     clearHistory: true,
+        //     transition: {
+        //         name: 'flip',
+        //         duration: 500,
+        //         curve:'linear'
+        //     }
+        // });
     }
 
     randomIntFromInterval(min,max) {
         return Math.floor(Math.random()*(max-min+1)+min)
     }
 
-
     ngOnInit() {
-        console.log("The series Random Index is: ...");
-        console.log("MovieIndex1:" + this.recommendation.MovieIndex1);
-        console.log("MovieIndex2:" + this.recommendation.MovieIndex2);
-        console.log("MovieIndex3:" + this.recommendation.MovieIndex3);
-        console.log("MovieIndex4:" + this.recommendation.MovieIndex4);
-        console.log("MovieIndex5:" + this.recommendation.MovieIndex5);
-        console.log("MovieIndex6:" + this.recommendation.MovieIndex6);
-        console.log("MovieIndex7:" + this.recommendation.MovieIndex7);
-        console.log("MovieIndex8:" + this.recommendation.MovieIndex8);
-        console.log("MovieIndex9:" + this.recommendation.MovieIndex9);
-        console.log("MovieIndex10:" + this.recommendation.MovieIndex10);
-        console.log("start to fetch Movie Infomation of MovieIndex", this.recommendation.MovieIndex1);
+        this.getMovieName();
+    }
+
+    getMovieName() {
+        console.log("start to fetch Movie Infomation of MovieIndex", this.recommendation.MovieIndex);
         let searchparam: URLSearchParams = new URLSearchParams();
-        searchparam.set("MovieId",this.recommendation.MovieIndex1.toString());
+        searchparam.set("MovieId",this.recommendation.MovieIndex.toString());
         this.http.get(Config.GetMovieNameByIndexUrl, {search: searchparam})
             .map(res => res.json())
             .subscribe((response: any) => {
-                this.recommendation.MovieNameOriginal1 = JSON.stringify(response['MovieName']);
-                if (this.recommendation.MovieNameOriginal1.trim().indexOf(",") > 0) {
-                    this.recommendation.MovieRecomm1 = this.recommendation.MovieNameOriginal1.trim().slice(0, this.recommendation.MovieNameOriginal1.indexOf(","));
+                this.recommendation.MovieNameOriginal = JSON.stringify(response['MovieName']);
+                if (this.recommendation.MovieNameOriginal.trim().indexOf(",") > 0) {
+                    this.recommendation.MovieRecomm = this.recommendation.MovieNameOriginal.trim().slice(0, this.recommendation.MovieNameOriginal.indexOf(","));
                 }
                 else{
-                    this.recommendation.MovieRecomm1 = this.recommendation.MovieNameOriginal1.trim();
+                    this.recommendation.MovieRecomm = this.recommendation.MovieNameOriginal.trim();
                 }
                 this.executeSearch();
                 // this.page.backgroundImage = "https://cldup.com/7pg616EKAp.png";
@@ -87,9 +102,43 @@ export class InitRecommComponent {
             })
     }
 
+
+    // ngOnInit() {
+    //     console.log("The series Random Index is: ...");
+    //     console.log("MovieIndex1:" + this.recommendation.MovieIndex1);
+    //     console.log("MovieIndex2:" + this.recommendation.MovieIndex2);
+    //     console.log("MovieIndex3:" + this.recommendation.MovieIndex3);
+    //     console.log("MovieIndex4:" + this.recommendation.MovieIndex4);
+    //     console.log("MovieIndex5:" + this.recommendation.MovieIndex5);
+    //     console.log("MovieIndex6:" + this.recommendation.MovieIndex6);
+    //     console.log("MovieIndex7:" + this.recommendation.MovieIndex7);
+    //     console.log("MovieIndex8:" + this.recommendation.MovieIndex8);
+    //     console.log("MovieIndex9:" + this.recommendation.MovieIndex9);
+    //     console.log("MovieIndex10:" + this.recommendation.MovieIndex10);
+    //     console.log("start to fetch Movie Infomation of MovieIndex", this.recommendation.MovieIndex1);
+    //     let searchparam: URLSearchParams = new URLSearchParams();
+    //     searchparam.set("MovieId",this.recommendation.MovieIndex1.toString());
+    //     this.http.get(Config.GetMovieNameByIndexUrl, {search: searchparam})
+    //         .map(res => res.json())
+    //         .subscribe((response: any) => {
+    //             this.recommendation.MovieNameOriginal1 = JSON.stringify(response['MovieName']);
+    //             if (this.recommendation.MovieNameOriginal1.trim().indexOf(",") > 0) {
+    //                 this.recommendation.MovieRecomm1 = this.recommendation.MovieNameOriginal1.trim().slice(0, this.recommendation.MovieNameOriginal1.indexOf(","));
+    //             }
+    //             else{
+    //                 this.recommendation.MovieRecomm1 = this.recommendation.MovieNameOriginal1.trim();
+    //             }
+    //             this.executeSearch();
+    //             // this.page.backgroundImage = "https://cldup.com/7pg616EKAp.png";
+    //             // let container = <View>this.container.nativeElement;
+    //             // console.log("!!!!!!!!!" + this.movieitem[0].thumbposterUrl);
+    //             // container.backgroundImage = this.movieitem[0].thumbposterUrl;
+    //         })
+    // }
+
     executeSearch() {
         this.movieitem = [];
-        var queryitem = this.recommendation.MovieRecomm1;
+        var queryitem = this.recommendation.MovieRecomm;
         let searchparam: URLSearchParams = new URLSearchParams();
         searchparam.set("api_key", Config.TMDBAPIKEY);
         searchparam.set("language", "en-US");

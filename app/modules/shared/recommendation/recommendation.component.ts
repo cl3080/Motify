@@ -4,6 +4,9 @@ import { Injectable } from '@angular/core';
 export class Recommendation {
     // index is the key indicating which movie recommendation service is working on
     public index = 0;
+    public MovieIndex: number = 0;
+    public MovieNameOriginal: string = '';
+    public MovieRecomm: string = '';
     public MovieRecomm1: string = '';
     public MovieRecomm2: string = '';
     public MovieRecomm3: string = '';

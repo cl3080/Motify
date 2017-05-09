@@ -7,5 +7,5 @@ export class User {
     public id: string = '';
     public photoUrl: string = '';
     public constructor() {}
-    public isNewUser: boolean = true;
+    public MapId: string = '';
 }

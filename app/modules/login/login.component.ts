@@ -47,8 +47,14 @@ export class LoginComponent {
                 .map(res => res.json())
                 .subscribe((res: any) => {
                 console.log("Responding message is " + JSON.stringify(res));
-                if (JSON.stringify(res) === 'true'){
+                console.log("The status message is " + JSON.stringify(res.status));
+                console.log(JSON.stringify(res.status).trim() === '"true"');
+                console.log(JSON.stringify(res.status).trim() === '"false"');
+                if (JSON.stringify(res.status) === '"true"'){
+                    // if res.status == true, then it's not new user.
                     console.log("Not New User");
+                    this.user.MapId = JSON.stringify(res.id);
+                    console.log("The MapId returned from database is " + this.user.MapId);
                     this.routerExtensions.navigate(['/initRecomm'], {
                         clearHistory: true,
                         transition: {
@@ -58,8 +64,25 @@ export class LoginComponent {
                         }
                     });
                 }
-                else {
+                else if (JSON.stringify(res.status) === '"false"') {
+                    // if res.status == false, then it's new user
+                    console.log("New User");
+                    this.user.MapId = JSON.stringify(res.id);
+                    console.log("The MapId returned from database is" + this.user.MapId);
                     this.routerExtensions.navigate(['/initRecomm'], {
+                        clearHistory: true,
+                        transition: {
+                            name: 'flip',
+                            duration: 500,
+                            curve: 'linear'
+                        }
+                    });
+                }
+
+                else {
+                    console.log("error appear in POST responding message");
+                    console.log("Go To homepage without setting MapId");
+                    this.routerExtensions.navigate(['/home'], {
                         clearHistory: true,
                         transition: {
                             name: 'flip',

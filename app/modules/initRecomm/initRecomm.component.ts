@@ -32,6 +32,7 @@ export class InitRecommComponent {
     text: string = ' initRecomm Page';
     movieitem;
     rating: string = '';
+    counter = 1;
 
 
     // constructor(private page: Page, private routerExtensions: RouterExtensions,
@@ -58,10 +59,29 @@ export class InitRecommComponent {
         this.recommendation.MovieIndex = this.randomIntFromInterval(1,40100);
     }
 
-    onRatingSubmit() {
-        console.log("Submit Button Called");
+    onSkip(){
+        console.log("skipped");
         this.recommendation.MovieIndex = this.randomIntFromInterval(1,40100);
         this.getMovieName();
+    }
+
+    onRatingSubmit() {
+        console.log("Submit Button Called");
+        if (this.counter < 10) {
+            this.recommendation.MovieIndex = this.randomIntFromInterval(1, 40100);
+            this.counter += 1;
+            this.getMovieName();
+        }
+        else {
+            this.routerExtensions.navigate(['/home'], {
+                clearHistory: true,
+                transition: {
+                    name: 'flip',
+                    duration: 500,
+                    curve:'linear'
+                }
+            });
+        }
         // this.routerExtensions.navigate(['/initRecomm'], {
         //     clearHistory: true,
         //     transition: {
@@ -71,6 +91,8 @@ export class InitRecommComponent {
         //     }
         // });
     }
+
+
 
     randomIntFromInterval(min,max) {
         return Math.floor(Math.random()*(max-min+1)+min)

@@ -1,6 +1,5 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
-import { User } from '../shared/user/user';
-import { UserService } from "../shared/user/user.service";
+import { MovieRecommDetail } from '../shared/movierecommdetail/movierecommdetail.component';
 // var imageSource = require("image-source");
 
 
@@ -8,21 +7,12 @@ import { UserService } from "../shared/user/user.service";
     selector: 'homeRecommDetail',
     templateUrl: 'modules/homeRecommDetail/homeRecommDetail.component.html',
     changeDetection: ChangeDetectionStrategy.OnPush,
-    providers: [UserService],
     // providers: [User]
 })
 export class HomeRecommDetailComponent {
-    imageUrl;
 
-    public constructor(private user: User, private userService: UserService){
-        this.imageUrl = this.user.photoUrl;
-        // imageSource.fromUrl(this.user.photoUrl)
-        //     .then((res) => {
-        //     imageSource = res;
-        //     console.log("Image fully loaded");
-        //     }, function(error) {
-        //     console.log("Error Loading Image");
-        //     });
+    public constructor(private movieRecommDetail: MovieRecommDetail){
+        console.log(this.movieRecommDetail.title);
     }
 
     ngOnInit() {

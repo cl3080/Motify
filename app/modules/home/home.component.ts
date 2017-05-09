@@ -8,6 +8,7 @@ import {View} from 'ui/core/view';
 import { Label } from 'ui/label';
 import { Image } from 'ui/image';
 import { User } from "../shared/user/user";
+import { MovieRecommDetail } from '../shared/movierecommdetail/movierecommdetail.component';
 
 
 @Component({
@@ -23,7 +24,7 @@ export class HomeComponent {
     MovieRank: string;
     // @ViewChild("GridLayoutContainer") gridLayoutContainer: ElementRef;
 
-    constructor(private http: Http, private page: Page, private routerExtensions: RouterExtensions, private ngZone: NgZone, private user: User) {
+    constructor(private movieRecommDetail: MovieRecommDetail,  private http: Http, private page: Page, private routerExtensions: RouterExtensions, private ngZone: NgZone, private user: User) {
         this.MovieList = [];
     }
 
@@ -67,6 +68,15 @@ export class HomeComponent {
 
     onTap(movie){
         console.log(JSON.stringify(movie));
+        this.movieRecommDetail.overview = movie.overview;
+        this.movieRecommDetail.title = movie.title;
+        this.movieRecommDetail.id = movie.id;
+        this.movieRecommDetail.vote = movie.vote;
+        this.movieRecommDetail.rank = movie.rank;
+        // Movie poster on Detail page is subject to change
+        this.movieRecommDetail.thumbposterUrl = movie.thumbposterUrl;
+        this.movieRecommDetail.releasedate = movie.releaseDate;
+
         this.routerExtensions.navigate(["/homeRecommDetail"], {
             transition: {
                 name: "flip",

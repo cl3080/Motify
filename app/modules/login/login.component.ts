@@ -71,6 +71,33 @@ export class LoginComponent {
                 });
 
         })
+            // this.http.post(Config.CheckIsUserExistUrl, {search: searchparam})
+            //     .map(res => res.json())
+            //     .subscribe((response: any) => {
+            //     console.log(response);
+            //     })
+                // if (this.user.isNewUser === false) {
+                //     this.routerExtensions.navigate(['/home'], {
+                //         clearHistory: true,
+                //         transition: {
+                //             name: "flip",
+                //             duration: 500,
+                //             curve: "linear"
+                //         }
+                //     });
+                // }
+                // else {
+                //     this.routerExtensions.navigate(['/initRecomm'],{
+                //
+                //         clearHistory: true,
+                //         transition:{
+                //             name: 'flip',
+                //             duration: 500,
+                //             curve: 'linear'
+                //         }
+                //     })
+                // }
+
     }
 
     public authcallback() {

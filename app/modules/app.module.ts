@@ -14,7 +14,6 @@ import { LogoutComponent } from './logout/logout.component';
 import { User } from './shared/user/user';
 import { NativeScriptFormsModule } from 'nativescript-angular/forms';
 import { InitRecommComponent } from './initRecomm/initRecomm.component';
-import { Recommendation } from './shared/recommendation/recommendation';
 
 @NgModule({
   imports: [
@@ -35,7 +34,7 @@ import { Recommendation } from './shared/recommendation/recommendation';
       InitRecommComponent
   ],
   bootstrap: [AppComponent],
-    providers: [User, Recommendation]
+    providers: [User]
     // bootstrap: [LoginComponent]
 })
 export class AppModule {

@@ -1,13 +1,14 @@
 import { Component, ChangeDetectionStrategy,ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Page } from'ui/page';
 import { RouterExtensions } from "nativescript-angular";
-import { Http, Headers, Response, URLSearchParams} from '@angular/http';
+import { Http, Headers, Response, URLSearchParams, RequestOptions} from '@angular/http';
 import {Config} from "../shared/config";
 import { NgZone } from "@angular/core";
 import {Recommendation} from "../shared/recommendation/recommendation.component";
 import {View} from 'ui/core/view';
 import { Label } from 'ui/label';
 import { Image } from 'ui/image';
+import { User } from "../shared/user/user";
 
 
 
@@ -53,7 +54,7 @@ export class InitRecommComponent {
     // }
 
     constructor(private page: Page, private routerExtensions: RouterExtensions,
-                private recommendation: Recommendation, private http: Http, private ngZone: NgZone) {
+                private recommendation: Recommendation, private http: Http, private ngZone: NgZone, private user: User) {
         this.movieitem = [];
         this.page.actionBarHidden = true;
         this.recommendation.MovieIndex = this.randomIntFromInterval(1,40100);
@@ -66,14 +67,38 @@ export class InitRecommComponent {
         this.getMovieName();
     }
 
+    postRating() {
+        let headers = new Headers();
+        headers.append('Content-Type', 'application/json');
+        console.log("Headers is " +  headers);
+        var postitem = {
+            "MovieIndex": this.recommendation.MovieIndex.toString(),
+            "UserId": this.user.id,
+            "rating": this.rating
+        };
+        this.rating = '';
+        let body =  JSON.stringify(postitem);
+        console.log("Body is " + body);
+        let options = new RequestOptions({headers: headers, method: "post"});
+        console.log("posting data...");
+        this.http.post(Config.PostUserRatingUrl, body, options)
+            .map(res => res.json())
+            .subscribe((response: any) => {
+                console.log("Responding message is " + JSON.stringify(response));
+            })
+    }
+
     onRatingSubmit() {
         console.log("Submit Button Called");
         if (this.counter < 10) {
             this.recommendation.MovieIndex = this.randomIntFromInterval(1, 40100);
             this.counter += 1;
             this.getMovieName();
+            this.postRating();
         }
         else {
+            this.getMovieName();
+            this.postRating();
             this.routerExtensions.navigate(['/home'], {
                 clearHistory: true,
                 transition: {

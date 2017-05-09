@@ -53,7 +53,7 @@ export class LoginComponent {
                 if (JSON.stringify(res.status) === '"true"'){
                     // if res.status == true, then it's not new user.
                     console.log("Not New User");
-                    this.user.MapId = JSON.stringify(res.id);
+                    this.user.MapId = JSON.stringify(res.id).slice(1, JSON.stringify(res.id).length-1).trim();
                     console.log("The MapId returned from database is " + this.user.MapId);
                     this.routerExtensions.navigate(['/initRecomm'], {
                         clearHistory: true,
@@ -67,7 +67,7 @@ export class LoginComponent {
                 else if (JSON.stringify(res.status) === '"false"') {
                     // if res.status == false, then it's new user
                     console.log("New User");
-                    this.user.MapId = JSON.stringify(res.id);
+                    this.user.MapId = JSON.stringify(res.id).slice(1, JSON.stringify(res.id).length-1).trim();
                     console.log("The MapId returned from database is" + this.user.MapId);
                     this.routerExtensions.navigate(['/initRecomm'], {
                         clearHistory: true,

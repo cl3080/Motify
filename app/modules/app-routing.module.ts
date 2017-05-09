@@ -9,6 +9,7 @@ import { ProfileComponent } from "./profile/profile.component";
 import { LoginComponent } from './login/login.component';
 import { LogoutComponent } from './logout/logout.component';
 import { InitRecommComponent } from './initRecomm/initRecomm.component';
+import { HomeRecommDetailComponent } from './homeRecommDetail/homeRecommDetail';
 
 @NgModule({
   imports: [
@@ -19,7 +20,8 @@ import { InitRecommComponent } from './initRecomm/initRecomm.component';
       { path: 'trend', component: TrendComponent },
       { path: 'search', component: SearchComponent },
       { path: 'profile', component: ProfileComponent},
-      { path: 'logout', component: LogoutComponent }
+      { path: 'logout', component: LogoutComponent },
+      { path: 'homeRecommDetail', component: HomeRecommDetailComponent}
     ])
   ],
   exports: [NativeScriptRouterModule]

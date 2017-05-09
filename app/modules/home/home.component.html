@@ -13,10 +13,11 @@
 
 <side-drawer-page>
     <GridLayout class="p-30">
+        <TextField [(ngModel)]="text"></TextField>
         <ListView [items]="MovieList" class="list-group">
             <template let-movie="item" >
                 <GridLayout columns="50, *" rows="*" class="item item-thumbnail">
-                    <image [src]="movie.thumbposterUrl" col="0"></image>
+                    <image [src]="movie.thumbposterUrl" col="0" (tap)="onTap(movie)"></image>
                     <stack-layout col="1">
                         <Label [text]="movie.title" textWrap="true" class="h2" col="1"></Label>
                         <label [text]="'Score: '+movie.vote" class="p" col="1"></label>

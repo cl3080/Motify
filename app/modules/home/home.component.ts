@@ -1,6 +1,6 @@
 import { Component, ChangeDetectionStrategy,ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Page } from'ui/page';
-import { RouterExtensions } from "nativescript-angular";
+import { RouterExtensions} from "nativescript-angular";
 import { Http, Headers, Response, URLSearchParams, RequestOptions} from '@angular/http';
 import { NgZone } from "@angular/core";
 import { Config } from '../shared/config';
@@ -16,11 +16,12 @@ import { User } from "../shared/user/user";
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class HomeComponent {
-    text: string = 'Motify Page';
+    text: string = '';
     MovieList;
     MovieNameInitial: string;
     MovieNameSearched: string;
     MovieRank: string;
+    // @ViewChild("GridLayoutContainer") gridLayoutContainer: ElementRef;
 
     constructor(private http: Http, private page: Page, private routerExtensions: RouterExtensions, private ngZone: NgZone, private user: User) {
         this.MovieList = [];
@@ -53,13 +54,27 @@ export class HomeComponent {
                         this.MovieNameSearched = this.MovieNameInitial.trim();
                     }
                     this.executeSearch();
+                    this.text = '';
                 }
 
             }
             else{
                 // Recommendation result has not been generated yet
+                this.text = 'Still Computing...'
             }
             });
+    }
+
+    onTap(movie){
+        console.log(JSON.stringify(movie));
+        this.routerExtensions.navigate(["/homeRecommDetail"], {
+            transition: {
+                name: "flip",
+                duration: 500,
+                curve: "linear"
+            }
+        });
+
     }
 
     executeSearch() {

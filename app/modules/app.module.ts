@@ -15,6 +15,7 @@ import { User } from './shared/user/user';
 import { NativeScriptFormsModule } from 'nativescript-angular/forms';
 import { InitRecommComponent } from './initRecomm/initRecomm.component';
 import { Recommendation } from './shared/recommendation/recommendation.component';
+import { HomeRecommDetailComponent } from './homeRecommDetail/homeRecommDetail';
 
 @NgModule({
   imports: [
@@ -32,7 +33,8 @@ import { Recommendation } from './shared/recommendation/recommendation.component
     ProfileComponent,
     LoginComponent,
       LogoutComponent,
-      InitRecommComponent
+      InitRecommComponent,
+      HomeRecommDetailComponent
   ],
   bootstrap: [AppComponent],
     providers: [User, Recommendation]

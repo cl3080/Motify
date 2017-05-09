@@ -49,7 +49,7 @@ export class LoginComponent {
                 console.log("Responding message is " + JSON.stringify(res));
                 if (JSON.stringify(res) === 'true'){
                     console.log("Not New User");
-                    this.routerExtensions.navigate(['/home'], {
+                    this.routerExtensions.navigate(['/initRecomm'], {
                         clearHistory: true,
                         transition: {
                             name: 'flip',

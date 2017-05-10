@@ -16,7 +16,7 @@ import { NativeScriptFormsModule } from 'nativescript-angular/forms';
 import { InitRecommComponent } from './initRecomm/initRecomm.component';
 import { Recommendation } from './shared/recommendation/recommendation.component';
 import { HomeRecommDetailComponent } from './homeRecommDetail/homeRecommDetail';
-import { MovieRecommDetail} from "./shared/movierecommdetail/movierecommdetail.component";
+import { MovieRecommDetail} from "./shared/movierecommdetail/movierecommdetail";
 
 @NgModule({
   imports: [

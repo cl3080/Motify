@@ -1,5 +1,5 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
-import { MovieRecommDetail } from '../shared/movierecommdetail/movierecommdetail.component';
+import { MovieRecommDetail } from '../shared/movierecommdetail/movierecommdetail';
 // var imageSource = require("image-source");
 
 
@@ -12,7 +12,7 @@ import { MovieRecommDetail } from '../shared/movierecommdetail/movierecommdetail
 export class HomeRecommDetailComponent {
 
     public constructor(private movieRecommDetail: MovieRecommDetail){
-        console.log(this.movieRecommDetail.title);
+        // console.log(this.movieRecommDetail.title);
     }
 
     ngOnInit() {

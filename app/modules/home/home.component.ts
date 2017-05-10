@@ -8,7 +8,7 @@ import {View} from 'ui/core/view';
 import { Label } from 'ui/label';
 import { Image } from 'ui/image';
 import { User } from "../shared/user/user";
-import { MovieRecommDetail } from '../shared/movierecommdetail/movierecommdetail.component';
+import { MovieRecommDetail } from '../shared/movierecommdetail/movierecommdetail';
 
 
 @Component({

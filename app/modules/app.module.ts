@@ -7,7 +7,6 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { TrendComponent } from './trend/trend.component';
 import { SearchComponent } from './search/search.component';
-import { ProfileComponent } from './profile/profile.component';
 import { SharedModule } from './shared';
 import { LoginComponent } from  './login/login.component';
 import { LogoutComponent } from './logout/logout.component';
@@ -31,7 +30,6 @@ import { MovieDetailPage } from "./shared/moviedetailpage/moviedetailpage";
     HomeComponent,
     TrendComponent,
     SearchComponent,
-    ProfileComponent,
     LoginComponent,
       LogoutComponent,
       InitRecommComponent,

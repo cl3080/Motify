@@ -34,7 +34,6 @@ export class SideDrawerPageComponent implements AfterViewInit, OnDestroy {
     { name: 'Home', commands: ['/home'] },
     { name: 'Trend', commands: ['/trend'] },
     { name: 'Search', commands: ['/search'] },
-    { name: 'Me', commands: ['/profile']},
     { name: 'Logout', commands: ['/logout']}
   ];
 

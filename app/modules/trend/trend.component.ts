@@ -2,6 +2,8 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { Http, Headers, Response, URLSearchParams} from '@angular/http';
 import { Config } from '../shared/config';
 import { Movie } from '../shared/movie/movie';
+import { MovieDetailPage } from '../shared/moviedetailpage/moviedetailpage';
+import { RouterExtensions} from "nativescript-angular";
 
 @Component({
   selector: 'trend',
@@ -14,9 +16,30 @@ export class TrendComponent {
   movie: Movie;
   MovieList;
 
-  constructor(private http: Http){
+  constructor(private http: Http, private movieDetailPage: MovieDetailPage, private routerExtensions: RouterExtensions){
       this.MovieList = [];
   }
+
+    onTap(movie){
+        console.log(JSON.stringify(movie));
+        this.movieDetailPage.overview = movie.overview;
+        this.movieDetailPage.title = movie.title;
+        this.movieDetailPage.id = movie.id;
+        this.movieDetailPage.vote = movie.vote;
+        this.movieDetailPage.rank = movie.rank;
+        // Movie poster on Detail page is subject to change
+        this.movieDetailPage.thumbposterUrl = movie.thumbposterUrl;
+        this.movieDetailPage.releasedate = movie.releaseDate;
+
+        this.routerExtensions.navigate(["/homeRecommDetail"], {
+            transition: {
+                name: "flip",
+                duration: 500,
+                curve: "linear"
+            }
+        });
+
+    }
 
   ngOnInit() {
     let popularparam : URLSearchParams = new URLSearchParams();

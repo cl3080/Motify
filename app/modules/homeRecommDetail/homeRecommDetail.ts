@@ -1,5 +1,5 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
-import { MovieRecommDetail } from '../shared/movierecommdetail/movierecommdetail';
+import { MovieDetailPage } from '../shared/moviedetailpage/moviedetailpage';
 // var imageSource = require("image-source");
 
 
@@ -11,7 +11,7 @@ import { MovieRecommDetail } from '../shared/movierecommdetail/movierecommdetail
 })
 export class HomeRecommDetailComponent {
 
-    public constructor(private movieRecommDetail: MovieRecommDetail){
+    public constructor(private movieRecommDetail: MovieDetailPage){
         // console.log(this.movieRecommDetail.title);
     }
 

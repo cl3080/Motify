@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 
 @Injectable()
-export class MovieRecommDetail {
+export class MovieDetailPage {
     public rank: string = '';
     public overview: string = '';
     public id: string = '';

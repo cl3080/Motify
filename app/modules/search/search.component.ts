@@ -4,6 +4,8 @@ import { Config } from '../shared/config';
 import { NativeScriptRouterModule } from "nativescript-angular/router";
 import { Router, NavigationStart, NavigationEnd } from "@angular/router";
 import { User } from '../shared/user/user';
+import {MovieDetailPage} from "../shared/moviedetailpage/moviedetailpage";
+import {RouterExtensions} from "nativescript-angular";
 
 @Component({
     selector: 'search',
@@ -18,8 +20,29 @@ export class SearchComponent {
     SearchMovieResultList;
     fetchedMovie = true;
 
-    constructor(private http: Http, private user: User) {
+    constructor(private http: Http, private user: User, private movieDetailPage: MovieDetailPage, private routerExtensions: RouterExtensions) {
         this.SearchMovieResultList = [];
+    }
+
+    onTap(movie){
+        console.log(JSON.stringify(movie));
+        this.movieDetailPage.overview = movie.overview;
+        this.movieDetailPage.title = movie.title;
+        this.movieDetailPage.id = movie.id;
+        this.movieDetailPage.vote = movie.vote;
+        this.movieDetailPage.rank = movie.rank;
+        // Movie poster on Detail page is subject to change
+        this.movieDetailPage.thumbposterUrl = movie.thumbposterUrl;
+        this.movieDetailPage.releasedate = movie.releaseDate;
+
+        this.routerExtensions.navigate(["/homeRecommDetail"], {
+            transition: {
+                name: "flip",
+                duration: 500,
+                curve: "linear"
+            }
+        });
+
     }
 
     executesearch($event) {

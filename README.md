@@ -89,6 +89,11 @@ The folder structure should appear as
    For details, please check our code.
 
 
+### License
+
+MIT
+
+
 
 
 

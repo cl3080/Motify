@@ -22,3 +22,15 @@ Motify is an AWS-concatenated, NativeScript-powered, fully-scalable movie explor
 
 This application is supported with various AWS components:
 ![Motify Architecture](https://cldup.com/Ir6c51ZDkO.png)
+
+### Tech Stack
+Motify uses multiple technologies to be fruitful:
+* [NativeScript with Angular] - Building hybrid mobile application
+* [TMDB] - awesome movie database supporting multiple APIs
+* [AWS API Gateway] - Gateway for APIs used in this app
+* [AWS Lambda] - Serverless. Implement business functions
+* [AWS DynamoDB] - Powerful nonrelational database to persist information
+* [AWS S3] - sum of AWS storage
+* [GCP Dataproc]- Spark environment, great automation support
+* [GCP Cloud Storage] - Movie training data rendering
+* [Apache Spark] - inplementing Collaborative Filtering with Matrix Factorization

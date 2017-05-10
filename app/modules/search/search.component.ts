@@ -1,5 +1,5 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
-import { Http, Headers, Response, URLSearchParams} from '@angular/http';
+import {Http, Headers, Response, URLSearchParams, RequestOptions} from '@angular/http';
 import { Config } from '../shared/config';
 import { NativeScriptRouterModule } from "nativescript-angular/router";
 import { Router, NavigationStart, NavigationEnd } from "@angular/router";
@@ -20,7 +20,7 @@ export class SearchComponent {
     SearchMovieResultList;
     fetchedMovie = true;
 
-    constructor(private http: Http, private user: User, private movieDetailPage: MovieDetailPage, private routerExtensions: RouterExtensions) {
+    constructor(private http: Http, private postHttp: Http, private user: User, private movieDetailPage: MovieDetailPage, private routerExtensions: RouterExtensions) {
         this.SearchMovieResultList = [];
     }
 
@@ -61,6 +61,21 @@ export class SearchComponent {
             var results = JSON.parse(JSON.stringify(response.results));
             var len = results.length;
             if ( len > 0 ) {
+                // Post first Movie Infomation to API
+                // schema: {"UserId":"", "MovieTMDBId":""};
+                console.log("Posting first movie fetched to API");
+                let headers = new Headers();
+                headers.append('Content-Type', 'application/json');
+                let body = JSON.stringify({UserId: this.user.id, MovieTMDBId: results[0].id});
+                console.log("posting body is " + body);
+                let options = new RequestOptions({headers: headers, method:"post"});
+                console.log("posting...");
+                this.postHttp.post(Config.PostSearchItemUrl, body, options)
+                    .map(res => res.json())
+                    .subscribe((response: any) => {
+                    console.log("responding message is " + JSON.stringify(response))
+                    });
+
                 var movieitem;
                 if (len > 5) {
                     for ( var i = 0; i <5 ; i++) {

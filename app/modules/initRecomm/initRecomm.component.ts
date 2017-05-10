@@ -57,12 +57,12 @@ export class InitRecommComponent {
                 private recommendation: Recommendation, private http: Http, private ngZone: NgZone, private user: User) {
         this.movieitem = [];
         this.page.actionBarHidden = true;
-        this.recommendation.MovieIndex = this.randomIntFromInterval(1,40100);
+        this.recommendation.MovieIndex = this.randomIntFromInterval(1,10235);
     }
 
     onSkip(){
         console.log("skipped");
-        this.recommendation.MovieIndex = this.randomIntFromInterval(1,40100);
+        this.recommendation.MovieIndex = this.randomIntFromInterval(1,10235);
         this.rating = '';
         this.getMovieName();
     }
@@ -91,7 +91,7 @@ export class InitRecommComponent {
     onRatingSubmit() {
         console.log("Submit Button Called");
         if (this.counter < 10) {
-            this.recommendation.MovieIndex = this.randomIntFromInterval(1, 40100);
+            this.recommendation.MovieIndex = this.randomIntFromInterval(1, 10235);
             this.counter += 1;
             this.getMovieName();
             this.postRating();

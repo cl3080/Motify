@@ -9,4 +9,5 @@ export class Config {
     static GetMovieNameByIndexUrl = 'https://wkrw1uj7h2.execute-api.us-east-1.amazonaws.com/V1/recommender';
     static PostUserRatingUrl = 'https://wkrw1uj7h2.execute-api.us-east-1.amazonaws.com/V1/recommender';
     static GetRecommendationUrl = 'https://wkrw1uj7h2.execute-api.us-east-1.amazonaws.com/V1/GetRecomm';
+    static PostSearchItemUrl = 'https://wkrw1uj7h2.execute-api.us-east-1.amazonaws.com/V1/GetSearch';
 }

@@ -66,21 +66,22 @@ if shell echos ```No issues were detected```, then we are done.
 ### Notes about running our App
 1. Please keep in mind the that App folder should always be named ```Motify``` since it binds with our appId in building.
 The folder structure should appear as
-  Motify
-  ├── README.md
-  ├── app
-  ├── hooks
-  ├── lib
-  ├── package.json
-  ├── references.d.ts
-  └── tsconfig.json
+```
+          Motify
+          ├── README.md
+          ├── app
+          ├── hooks
+          ├── lib
+          ├── package.json
+          ├── references.d.ts
+          └── tsconfig.json
+ ```
 2. Since NativeScript use a lazy bulding scheme, to completely rebuild app:
    ```sh
-   rm -rf node_modules && rm -rf platforms
-   npm i
+   rm -rf node_modules && rm -rf platforms && npm i
    tns run ios (tns run android)
    ```
-3. The [NativeScript-OAuth] plugin we used for third-party login is currently fail on Android devices
+3. The [NativeScript OAuth] plugin we used for third-party login is currently fail on Android devices
 4. We might delete our credentials for
    - facebook login
    - AWS and GCP components

@@ -78,8 +78,8 @@ The folder structure should appear as
  ```
 2. Since NativeScript use a lazy bulding scheme, to completely rebuild app:
    ```sh
-   rm -rf node_modules && rm -rf platforms && npm i
-   tns run ios (tns run android)
+   $ rm -rf node_modules && rm -rf platforms && npm i
+   $ tns run ios (tns run android)
    ```
 3. The [NativeScript OAuth] plugin we used for third-party login is currently fail on Android devices
 4. We might delete our credentials for

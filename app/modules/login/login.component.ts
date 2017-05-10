@@ -55,7 +55,7 @@ export class LoginComponent {
                     console.log("Not New User");
                     this.user.MapId = JSON.stringify(res.id).slice(1, JSON.stringify(res.id).length-1).trim();
                     console.log("The MapId returned from database is " + this.user.MapId);
-                    this.routerExtensions.navigate(['/initRecomm'], {
+                    this.routerExtensions.navigate(['/home'], {
                         clearHistory: true,
                         transition: {
                             name: 'flip',

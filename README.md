@@ -27,10 +27,20 @@ This application is supported with various AWS components:
 Motify uses multiple technologies to be fruitful:
 * [NativeScript with Angular] - Building hybrid mobile application
 * [TMDB] - awesome movie database supporting multiple APIs
-* [AWS API Gateway] - Gateway for APIs used in this app
+* [AWS API Gateway] - Management tool for APIs used in this app
 * [AWS Lambda] - Serverless. Implement business functions
 * [AWS DynamoDB] - Powerful nonrelational database to persist information
 * [AWS S3] - sum of AWS storage
 * [GCP Dataproc]- Spark environment, great automation support
 * [GCP Cloud Storage] - Movie training data rendering
 * [Apache Spark] - inplementing Collaborative Filtering with Matrix Factorization
+
+[NativeScript with Angular]:<https://docs.nativescript.org/angular/start/introduction.html>
+[TMDB]:<https://www.themoviedb.org/?language=en>
+[AWS API Gateway]:<https://aws.amazon.com/api-gateway/>
+[AWS Lambda]:<https://aws.amazon.com/lambda/>
+[AWS DynamoDB]:<https://aws.amazon.com/dynamodb/>
+[AWS S3]:<https://aws.amazon.com/s3/>
+[GCP Dataproc]:<>
+[GCP Cloud Storage]:<https://cloud.google.com/storage/>
+[Apache Spark]:<https://cloud.google.com/dataproc/>

@@ -11,3 +11,7 @@ users.csv contains all of our users ratings, a sample format
 ## Build Jobs on Google Cloud
 
 Open a new Dataproc, install boto3 and all related file in the Spark folder. User spark-submit or directly a job submit
+
+## Lamda Function
+
+Deploy them on lambda

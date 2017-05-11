@@ -90,7 +90,7 @@ The folder structure should appear as
 
 
 ### Demo
-Motify Demo URL: https://www.youtube.com/watch?v=9ynb7r7j3aQ
+Motify Demo URL: https://www.youtube.com/watch?v=9ynb7r7j3aQ<br>
 Click [here] to visit
 
 ### License

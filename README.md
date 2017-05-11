@@ -89,6 +89,10 @@ The folder structure should appear as
    For details, please check our code.
 
 
+### Demo
+Motify Demo URL: https://www.youtube.com/watch?v=9ynb7r7j3aQ
+Click [here] to visit
+
 ### License
 
 MIT
@@ -109,3 +113,4 @@ MIT
 [Android Studio]:<https://developer.android.com/studio/index.html>
 [NativeScript OAuth]:<https://www.npmjs.com/package/nativescript-oauth>
 [Apache Spark]:<https://cloud.google.com/dataproc/>
+[here]:<https://www.youtube.com/watch?v=9ynb7r7j3aQ>

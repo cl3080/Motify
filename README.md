@@ -92,7 +92,7 @@ The folder structure should appear as
 ### Demo
 Motify Demo: Click [here] to visit
 
-See full demo slide deck at Google Doc: https://goo.gl/qYGUCd
+See full demo slide deck at Google Doc: https://goo.gl/QCtUNz
 
 ### License
 
